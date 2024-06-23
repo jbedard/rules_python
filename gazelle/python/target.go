@@ -171,3 +171,13 @@ func (t *targetBuilder) build() *rule.Rule {
 	r.SetPrivateAttr(resolvedDepsKey, t.resolvedDeps)
 	return r
 }
+
+func createPyTestMainTarget() *rule.Rule {
+	resolvedDeps := treeset.NewWith(godsutils.StringComparator)
+	resolvedDeps.Add("@pypi_test//:pkg")
+
+	r := rule.NewRule(pyTestMainKind, "__test__")
+	r.SetPrivateAttr(resolvedDepsKey, resolvedDeps)
+	r.SetPrivateAttr(config.GazelleImportsKey, treeset.NewWith(moduleComparator))
+	return r
+}
