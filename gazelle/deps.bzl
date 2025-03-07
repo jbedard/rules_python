@@ -14,7 +14,11 @@
 
 "This file managed by `bazel run //:gazelle_update_repos`"
 
-load("@bazel_gazelle//:deps.bzl", _go_repository = "go_repository")
+load(
+    "@bazel_gazelle//:deps.bzl",
+    "go_repository",
+    _go_repository = "go_repository",
+)
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 def go_repository(name, **kwargs):
@@ -183,10 +187,10 @@ def go_deps():
         version = "v0.0.0-20190812154241-14fe0d1b01d4",
     )
     go_repository(
-        name = "com_github_dougthor42_go_tree_sitter",
-        importpath = "github.com/dougthor42/go-tree-sitter",
-        sum = "h1:b9s96BulIARx0konX36sJ5oZhWvAvjQBBntxp1eUukQ=",
-        version = "v0.0.0-20241210060307-2737e1d0de6b",
+        name = "com_github_smacker_go_tree_sitter",
+        importpath = "github.com/smacker/go-tree-sitter",
+        sum = "h1:6C8qej6f1bStuePVkLSFxoU22XBS165D3klxlzRg8F4=",
+        version = "v0.0.0-20240827094217-dd81d9e9be82",
     )
     go_repository(
         name = "com_github_stretchr_objx",
